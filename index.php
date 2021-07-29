@@ -38,7 +38,7 @@ $items = mysqli_fetch_all($result, MYSQLI_ASSOC);
 			</form>
 			<h3>Добавленные записи</h3>
 
-			<?php foreach($items as $item):?>
+			<?php foreach($items as $item)?>
 			<p><?php echo $item ['text'];?></p>
 			<?php endforeach;?>
 		</div>

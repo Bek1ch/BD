@@ -1,5 +1,17 @@
 
+<?php
 
+$connect = mysqli_connect("localhost", "root", "root", "myproject");
+
+$sql = "SELECT * FROM images";
+
+$result = mysqli_query($connect, $sql);
+
+$items = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +36,14 @@
 					<button type = "submit" class ="btn btn-success">Отправить</button>
 				</div>
 			</form>
+			<h3>Добавленные картинки</h3>
+
+			<?php foreach($items as $item):?>
+			<p>
+				<h5> <?php echo $item['image'];?></h5>
+				<img src="images/<?php echo $item ['image'];?>" width ="600">
+			</p>
+			<?php endforeach;?>
 		</div>
 	</div>
 </div>
